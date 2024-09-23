@@ -1,0 +1,516 @@
+$primary-color: #ffc746;
+$secondary-color: #00d5ff;
+$chat-color1: #ff5abb;
+$chat-color2: $primary-color;
+$chat-color3: $secondary-color;
+$chat-color4: #3FF000;
+$text-color: #363636;
+$background-color: #f5f5f5;
+$shadow-color: rgba(0, 0, 0, 0.3);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('./img/pixel-art-sky-background-with-clouds-cloudy-blue-sky-for-8bit-game-on-white-background-vector.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#fps {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    color: $primary-color;
+    font-weight: bold;
+    font-size: 1rem;
+    z-index: 100;
+    width: fit-content;
+    height: 40px;
+}
+
+.bootMenu {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: rgba($color: $background-color, $alpha: .9);
+    box-shadow: 0 0 10px $shadow-color;
+    border-radius: 20px;
+    animation: stagger-up 0.5s ease-in;
+
+    #title {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: $primary-color;
+        text-shadow: 3px 3px 0 $shadow-color;
+        animation: stagger-right .7s ease-in;
+    }
+
+    p {
+        font-size: 1rem;
+        margin-bottom: 5px;
+        color: $text-color;
+        font-weight: bold;
+    }
+
+    span {
+        font-size: 0.9rem;
+        color: $text-color;
+        margin-bottom: 10px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        #field {
+            padding: 5px;
+            width: 60%;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: $primary-color 1px solid;
+            margin-bottom: 20px;
+        }
+
+        #submitBtn {
+            padding: 5px;
+            width: 100px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: $secondary-color;
+            color: $text-color;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-size: 20px;
+            color: $background-color;
+
+            &:hover {
+                background-color: #00b5da;
+            }
+        }
+    }
+}
+
+#end-button {
+    z-index: 2;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba($color: $chat-color2, $alpha: .9);
+    border: none;
+    border-radius: 10px;
+    right: 110px;
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 10px;
+    transition: background-color 0.3s;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+        background-color: rgba($color: $chat-color2, $alpha: .7);
+        cursor: pointer;
+    }
+}
+
+#leave-button {
+    z-index: 2;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba($color: $chat-color2, $alpha: .9);
+    border: none;
+    border-radius: 10px;
+    right: 0;
+    margin-top: 15px;
+    margin-right: 15px;
+    padding: 10px;
+    transition: background-color 0.3s;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+        background-color: rgba($color: $chat-color2, $alpha: .7);
+        cursor: pointer;
+    }
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#end-menu {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: auto;
+    height: 400px;
+    min-width: 300px;
+    min-height: 300px;
+    margin: auto;
+    padding: 10px;
+    background-color: $background-color;
+    box-shadow: 0 0 10px $shadow-color;
+    border-radius: 20px;
+    overflow-wrap: break-word;
+
+
+    #end-title {
+        text-align: center;
+        text-justify: auto;
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: $primary-color;
+        text-shadow: 3px 3px 0 $shadow-color;
+        animation: stagger-right .7s ease-in;
+    }
+
+    #end-prompt {
+        font-size: large;
+        font-weight: bolder;
+    }
+
+
+    .end {
+        background-color: rgba($color: $primary-color, $alpha: .8);
+        width: 100px;
+        height: 30px;
+        text-align: center;
+        padding: 5px;
+        position: inherit;
+        border: none;
+        margin: 0;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: rgba($color: $primary-color, $alpha: 1);
+            cursor: pointer;
+        }
+
+        animation: stagger-up 0.5s ease-in-out;
+    }
+
+    #button-container {
+        display: flex;
+        width: 80%;
+        justify-content: space-evenly;
+    }
+}
+
+
+#game {
+    display: flex;
+    position: relative;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 650px;
+    height: 650px;
+    min-width: 300px;
+    min-height: 300px;
+    margin: auto;
+    background-color: $background-color;
+    box-shadow: 0 0 10px $shadow-color;
+    border-radius: 20px;
+
+    #lives-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        top: 40px;
+        left: -200px;
+        width: 30%;
+
+        p {
+            text-align: center;
+            padding: 10px;
+            color: black;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 100%;
+
+            li {
+                padding: 10px;
+                border-radius: 6px;
+                width: 100px;
+                margin-bottom: 5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+                background-color: rgba($color: $primary-color, $alpha: .8);
+                color: white;
+            }
+        }
+    }
+}
+
+#waitingRoom {
+    width: 70%;
+    height: 80%;
+
+    ul {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            padding: 10px;
+            border-radius: 6px;
+            width: 90%;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            background-color: rgba($color: $primary-color, $alpha: .8);
+            color: white;
+
+            span {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+.countDown {
+    text-align: center;
+    z-index: 1;
+    margin-top: 30%;
+    font-size: 5rem;
+    color: $primary-color;
+    text-shadow: 3px 3px 0 $shadow-color;
+    animation: stagger-up 0.5s ease-in;
+}
+
+#playersCount {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: $text-color;
+}
+
+
+.player {
+    background-color: rgba($color: $background-color, $alpha: .6);
+}
+
+#room-container {
+    width: 100%;
+    height: 100%;
+}
+
+#playerList {
+    width: 100%;
+}
+
+#chat {
+    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    background-color: rgba($color: $shadow-color, $alpha: .6);
+
+    #chat-box {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        width: 100%;
+        text-align: start;
+
+        p {
+            width: 100%;
+            overflow-wrap: break-word;
+        }
+
+        .chat-element-join {
+            background-color: rgba($color: $chat-color4, $alpha: .3);
+            color: $chat-color4;
+            padding: 3px;
+            border-radius: 3px;
+            text-align: center;
+            margin-bottom: 3px;
+            margin-top: 2px;
+        }
+
+        .chat-element-leave {
+            background-color: rgba($color: $chat-color1, $alpha: .3);
+            color: $chat-color1;
+            padding: 3px;
+            border-radius: 3px;
+            text-align: center;
+            margin-bottom: 3px;
+            margin-top: 2px;
+        }
+
+        .chat-element {
+            padding: 4px;
+            color: white;
+            line-height: 25px;
+            background-color: rgba($color: $text-color, $alpha: .5);
+            margin-bottom: 3px;
+            margin-top: 2px;
+            border-radius: 8px;
+
+            &:last-child {
+                // animation: fadeIn 0.5s ease-in, stagger-right 0.5s ease-in;
+
+                .chat-sender {
+                    color: $chat-color3
+                }
+            }
+
+            .chat-sender {
+                color: $chat-color2;
+                padding-bottom: 8px;
+                padding-top: 8px;
+            }
+        }
+
+    }
+
+    form {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        padding: 10px 0px;
+
+        #chat-input {
+            width: 100%;
+            padding: 5px;
+            height: 30px;
+            border: 1px solid $primary-color;
+            border-radius: 5px;
+            background-color: $background-color;
+
+            &:focus {
+                outline: none;
+                overflow-wrap: break-word;
+            }
+        }
+    }
+}
+
+
+//MAP
+
+#map {
+    position: relative;
+    width: 608px;
+    height: 608px;
+    // background-color: green
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+}
+
+#TabBomb {
+    will-change: transform;
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+
+    div {
+        position: absolute;
+    }
+}
+
+.player-sprite {
+    will-change: transform;
+    position: absolute;
+    z-index: 100;
+    width: 32px;
+    height: 32px;
+    // background-color: $primary-color;
+}
+
+.block-cover {
+    position: absolute;
+    z-index: 40;
+}
+
+.bomb,
+.fire {
+    will-change: transform;
+}
+
+@keyframes stagger-right {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
+@keyframes stagger-up {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
